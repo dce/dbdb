@@ -6,7 +6,7 @@ class Db < ActiveRecord::Base
     self.build_avatar(attrs)
   end
 
-  def score
-    (rand(50) + 1) / 10.0
+  def bagfactor
+    rand(50) / 10.0
   end
 end
