@@ -1,5 +1,5 @@
 <dd>
-  <%= image_tag db.avatar.image.url(:profile) %>
+  <%= image_tag db.avatar.image.url(:profile) if db.avatar %>
   <span class="occupation">
     <span class="label">Occupation</span>
     <%= db.occupation %>
