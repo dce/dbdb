@@ -4,16 +4,6 @@
     <span class="position"><%= index + 1 %></span>
     <span class="name"><%= db.name %></span>
   </dt>
-  <dd>
-    <%= image_tag db.avatar.image.url(:profile) %>
-    <span class="occupation">
-      <span class="label">Occupation</span>
-      <%= db.occupation %>
-    </span>
-    <span class="bagfactor">
-      <span class="label">Bagfactor<sup>&copy;</sup></span>
-      <%= db.bagfactor %>
-    </span>
-  </dd>
+  <%= render :partial => "profile", :locals => { :db => db }%>
 <% end %>
 </dl>
