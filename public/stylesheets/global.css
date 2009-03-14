@@ -1,5 +1,5 @@
 body {
-  font: 12px "Lucida Grande", verdana, sans-serif;
+  font: 12.5px "Lucida Grande", verdana, sans-serif;
 }
 
 #container { 
@@ -7,10 +7,12 @@ body {
   margin: 0 auto;
 }
 
-h1 { font-size: 3em; text-align: center; }
+h1 {
+  font-size: 3em; text-align: center;
+}
 
 span.label {
-  font-size: .7em;
+  font-size: .667em;
   color: #666;
   display: block;
 }
@@ -26,8 +28,8 @@ dl.db-list span.position {
   font-size: 4em;
   float: left;
   background-color: #333;
-  width: 60px;
-  height: 60px;
+  width: 1.25em;
+  height: 1.25em;
   text-align: center;
   color: white;
 }
@@ -35,27 +37,29 @@ dl.db-list span.position {
 dl.db-list span.name {
   display: block;
   background-color: #bbb;
-  padding: 10px 0 10px 70px;
   font-size: 2em;
+  padding: .5em 0 .5em 3em;
 }
 
 dl.db-list dd {
   font-size: 2.5em;
   clear: left;
-  margin: 0 0 0 30px;
+  margin: 0 0 0 1em;
   background-color: #eee;
-  padding: 20px 20px;
+  padding: 1em;
   position: relative;
-  top: -30px;
+  top: -1em;
   z-index: 0;
 }
 
 dl.db-list dd img {
   float: right;
-  margin-top: 18px;
+  margin-top: .75em;
+  width: 5em;
+  height: 5em;
 }
 
 dl.db-list dd span {
-  margin-top: 1.2em;
+  margin-top: 1.25em;
 }
 
