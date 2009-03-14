@@ -4,6 +4,10 @@ class DbsController < ApplicationController
     render :action => "with_profiles" if params[:with_profiles]
   end
 
+  def show
+    @db = Db.find(params[:id])
+  end
+
   def new
     @db = Db.new(:avatar => {})
   end

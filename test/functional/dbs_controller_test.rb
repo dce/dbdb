@@ -24,6 +24,18 @@ class DbsControllerTest < ActionController::TestCase
       end
     end
 
+    context "showing a DB" do
+      setup do
+        @db = Db.create(:name => "Tyler Hansbrough",
+          :occupation => "UNC Basketball Player")
+        get :show, :id => @db.id
+      end
+
+      should_respond_with :success
+      should_render_template :show
+      should_assign_to :db
+    end
+
     context "rendering new DB form" do
       setup do
         get :new
