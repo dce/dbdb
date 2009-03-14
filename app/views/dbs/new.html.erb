@@ -1,0 +1,13 @@
+<% form_for @db do |f| %>
+<p>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</p>
+
+<p>
+  <%= f.label :occupation %>
+  <%= f.text_field :occupation %>
+</p>
+
+<p><%= submit_tag "Submit DB" %></p>  
+<% end %>
