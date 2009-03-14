@@ -7,6 +7,7 @@ class Db < ActiveRecord::Base
   end
 
   def bagfactor
+    sleep(2)
     rand(50) / 10.0
   end
 end

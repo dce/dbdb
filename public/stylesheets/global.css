@@ -65,3 +65,8 @@ dl.db-list dd span {
   margin-top: 1.25em;
 }
 
+dl.db-list dd.spinner {
+  height: 6em;
+  background: #eee url(/images/spinner.gif) center center no-repeat;
+}
+
