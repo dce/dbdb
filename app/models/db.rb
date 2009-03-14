@@ -5,4 +5,8 @@ class Db < ActiveRecord::Base
   def avatar=(attrs = {})
     self.build_avatar(attrs)
   end
+
+  def score
+    (rand(50) + 1) / 10.0
+  end
 end
