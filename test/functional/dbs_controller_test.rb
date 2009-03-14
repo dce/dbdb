@@ -3,13 +3,25 @@ require 'test_helper'
 class DbsControllerTest < ActionController::TestCase
   context "A DbsController" do
     context "listing DBs" do
-      setup do
-        get :index
+      context "without profiles" do
+        setup do
+          get :index
+        end
+
+        should_respond_with :success
+        should_render_template :index
+        should_assign_to :dbs
       end
       
-      should_respond_with :success
-      should_render_template :index
-      should_assign_to :dbs
+      context "with profiles" do
+        setup do
+          get :index, :with_profiles => true
+        end
+
+        should_respond_with :success
+        should_render_template :with_profiles
+        should_assign_to :dbs
+      end
     end
 
     context "rendering new DB form" do

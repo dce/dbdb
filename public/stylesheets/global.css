@@ -20,6 +20,8 @@ span.label {
 dl.db-list dt {
   position: relative;
   z-index: 100;
+  margin-top: 2em;
+  clear: both;
 }
 
 dl.db-list span.position {
@@ -43,8 +45,7 @@ dl.db-list span.name {
 
 dl.db-list dd {
   font-size: 2.5em;
-  clear: left;
-  margin: 0 0 0 1em;
+  margin: 0 0 -1em 1em;
   background-color: #eee;
   padding: 1em;
   position: relative;

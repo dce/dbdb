@@ -1,6 +1,7 @@
 class DbsController < ApplicationController
   def index
     @dbs = Db.all
+    render :action => "with_profiles" if params[:with_profiles]
   end
 
   def new
