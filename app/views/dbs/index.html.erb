@@ -1,5 +1,8 @@
 <ul>
 <% @dbs.each do |db| %>
-  <li><%= db.name %></li>
+  <li>
+    <%= image_tag db.avatar.image.url(:profile) %>
+    <%= db.name %>
+  </li>
 <% end %>
 </ul>

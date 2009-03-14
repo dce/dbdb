@@ -1,3 +1,5 @@
 log/*.log
 tmp/*
 db/*.sqlite3
+config/initializers/paperclip.rb
+public/system/images/*

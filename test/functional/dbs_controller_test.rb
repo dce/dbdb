@@ -34,6 +34,19 @@ class DbsControllerTest < ActionController::TestCase
         should_change "Db.count", :by => 1
       end
 
+      context "with an avatar" do
+        setup do
+          post :create, :db => { :name => "Tyler Hansbrough",
+            :occupation => "UNC Basketball Player",
+            :avatar => { :image => File.open(RAILS_ROOT + "/test/criss_angel.jpg") } }
+        end
+
+        should_respond_with :redirect
+        should_redirect_to "dbs_url"
+        should_change "Db.count", :by => 1
+        should_change "Avatar.count", :by => 1
+      end
+
       context "unsuccessfully" do
         setup do
           post :create, :db => { :name => "Tyler Hansbrough",
