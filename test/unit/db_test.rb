@@ -5,9 +5,9 @@ class DbTest < ActiveSupport::TestCase
     should_have_one :avatar
     should_validate_presence_of :name, :occupation
 
-    should "have a score" do
+    should "have a bagfactor" do
       db = Db.new
-      assert_equal Float, db.score.class
+      assert_equal Float, db.bagfactor.class
     end
   end
 end
