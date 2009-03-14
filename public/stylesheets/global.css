@@ -2,13 +2,15 @@ body {
   font: 12.5px "Lucida Grande", verdana, sans-serif;
 }
 
+h1 {
+  font-size: 3em; text-align: center;
+}
+
+a { color: #333; text-decoration: none; border-bottom: 1px dotted #333; }
+
 #container { 
   width: 640px;
   margin: 0 auto;
-}
-
-h1 {
-  font-size: 3em; text-align: center;
 }
 
 span.label {
