@@ -49,7 +49,6 @@ dl.db-list dd {
   padding: 1em;
   position: relative;
   top: -1em;
-  z-index: 0;
 }
 
 dl.db-list dd img {
