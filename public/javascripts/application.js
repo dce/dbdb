@@ -1,2 +1,15 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(document).ready(function() {
+  $(".db-list a").click(function() {
+    link = $(this);
+    $.ajax({url: $(this).attr("href"),
+      success: function(src) {
+        link.parents("dt").after(src);
+        link.unbind('click').click(function() {
+          $(this).parents("dt").next("dd").toggle();
+          return false;
+        });
+      }
+    });
+    return false;
+  });
+});

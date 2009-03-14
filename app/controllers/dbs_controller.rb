@@ -6,6 +6,12 @@ class DbsController < ApplicationController
 
   def show
     @db = Db.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js do
+        render :partial => "profile", :locals => { :db => @db }
+      end
+    end
   end
 
   def new

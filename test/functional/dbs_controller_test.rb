@@ -28,12 +28,26 @@ class DbsControllerTest < ActionController::TestCase
       setup do
         @db = Db.create(:name => "Tyler Hansbrough",
           :occupation => "UNC Basketball Player")
-        get :show, :id => @db.id
       end
 
-      should_respond_with :success
-      should_render_template :show
-      should_assign_to :db
+      context "as HTML" do
+        setup do
+          get :show, :id => @db.id
+        end
+
+        should_respond_with :success
+        should_render_template :show
+        should_assign_to :db
+      end
+
+      context "via AJAX" do
+        setup do
+          xhr :get, :show, :id => @db.id
+        end
+
+        should_respond_with :success
+        should_render_template :profile
+      end
     end
 
     context "rendering new DB form" do
