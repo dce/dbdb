@@ -1,10 +1,13 @@
 <html>
 <head>
   <title>DBDB</title>
+  <%= stylesheet_link_tag "global", :cache => true %>
 </head>
 <body>
-  <h1>DBDB</h1>
+  <div id="container">
+    <h1>DBDB</h1>
   
-  <%= yield %>
+    <%= yield %>
+  </div>
 </body>
 </html>

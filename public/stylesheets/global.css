@@ -1,0 +1,61 @@
+body {
+  font: 12px "Lucida Grande", verdana, sans-serif;
+}
+
+#container { 
+  width: 640px;
+  margin: 0 auto;
+}
+
+h1 { font-size: 3em; text-align: center; }
+
+span.label {
+  font-size: .7em;
+  color: #666;
+  display: block;
+}
+
+dl.db-list dt {
+  font-family: georgia;
+  position: relative;
+  z-index: 100;
+}
+
+dl.db-list span.position {
+  display: block;
+  font-size: 4em;
+  float: left;
+  background-color: #333;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  color: white;
+}
+
+dl.db-list span.name {
+  display: block;
+  background-color: #bbb;
+  padding: 10px 0 10px 70px;
+  font-size: 2em;
+}
+
+dl.db-list dd {
+  font-size: 2.5em;
+  clear: left;
+  margin: 0 0 0 30px;
+  background-color: #eee;
+  padding: 20px 20px;
+  position: relative;
+  top: -30px;
+  z-index: 0;
+}
+
+dl.db-list dd img {
+  float: right;
+  margin-top: 18px;
+}
+
+dl.db-list dd span {
+  margin-top: 1.2em;
+}
+
