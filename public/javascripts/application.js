@@ -76,5 +76,10 @@ $(document).ready(function() {
   $("img.spinner:first").each(function() {
     $(this).loadBagfactor();
   });
+
+  $("a#ajax-uploads").click(function() {
+    $("input[type=file]").replaceWith('<iframe src="/avatars/new"></iframe>');
+    return false;
+  });
 });
 
