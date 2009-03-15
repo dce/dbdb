@@ -54,7 +54,7 @@ dl.db-list dd {
   top: -1em;
 }
 
-dl.db-list dd img {
+dl.db-list dd img.avatar {
   float: right;
   margin-top: .75em;
   width: 5em;
@@ -69,4 +69,5 @@ dl.db-list dd.spinner {
   height: 6em;
   background: #eee url(/images/spinner.gif) center center no-repeat;
 }
+
 

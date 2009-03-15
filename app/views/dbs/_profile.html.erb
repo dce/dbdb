@@ -1,11 +1,15 @@
 <dd>
-  <%= image_tag db.avatar.image.url(:profile) if db.avatar %>
+  <%= image_tag db.avatar.image.url(:profile), :class => "avatar" if db.avatar %>
   <span class="occupation">
     <span class="label">Occupation</span>
     <%= db.occupation %>
   </span>
   <span class="bagfactor">
     <span class="label">Bagfactor<sup>&copy;</sup></span>
+    <% if params[:hide_scores] %>
+    <%= image_tag "spinner.gif", :class => "spinner" %>
+    <% else %>
     <%= db.bagfactor %>
+    <% end %>
   </span>
 </dd>

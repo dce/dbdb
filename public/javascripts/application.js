@@ -34,7 +34,7 @@ $(document).ready(function() {
 
   jQuery.fn.loadContentInOrder = function() {
     link = this;
-    if (this.attr("href") != null) {
+    if (this.size() > 0) {
       $.ajax({url: this.attr("href"),
         success: function(src) {
           display = link.parents("dt").next("dd").replaceWith(src).css("display");
@@ -58,6 +58,23 @@ $(document).ready(function() {
       $(this).parents("dt").next("dd").toggle();
       return false;
     });
+  });
+
+  jQuery.fn.loadBagfactor = function() {
+    img = this;
+    if (img.size() > 0) {
+      $.ajax({url: this.parents("dd").prev("dt").find("a").attr("href"),
+        data: { format: "json" }, dataType: "json",
+        success: function(db) {
+          img.replaceWith(db.bagfactor);
+          $("img.spinner:first").loadBagfactor();
+        }
+      });
+    }
+  };
+
+  $("img.spinner:first").each(function() {
+    $(this).loadBagfactor();
   });
 });
 

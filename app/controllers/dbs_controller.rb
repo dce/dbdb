@@ -11,6 +11,9 @@ class DbsController < ApplicationController
       format.js do
         render :partial => "profile", :locals => { :db => @db }
       end
+      format.json do
+        render :json => { :bagfactor => @db.bagfactor }
+      end
     end
   end
 

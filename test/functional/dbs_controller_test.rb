@@ -48,6 +48,18 @@ class DbsControllerTest < ActionController::TestCase
         should_respond_with :success
         should_render_template :profile
       end
+
+      context "as JSON" do
+        setup do
+          get :show, :id => @db.id, :format => "json"
+        end
+
+        should_respond_with :success
+
+        should "return JSON" do
+          assert_equal "application/json", @response.content_type
+        end
+      end
     end
 
     context "rendering new DB form" do
