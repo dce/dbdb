@@ -1,20 +1,19 @@
 <% form_for @db, :html => { :multipart => true } do |f| %>
-<p>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-</p>
 
-<p>
-  <%= f.label :occupation %>
-  <%= f.text_field :occupation %>
-</p>
+<dl class="new-db">
+  <dt><%= f.label :name %></dt>
+  <dd><%= f. text_field  :name %></dd>
 
-<p>
+  <dt><%= f.label :occupation %></dt>
+  <dd><%= f. text_field  :occupation %></dd>
+
   <% fields_for "db[avatar]" do |avatar| %>
-  <%= avatar.label :image, "Photo" %>
-  <%= avatar.file_field :image %>
+  <dt><%= avatar.label :image, "Photo" %></dt>
+  <dd><%= avatar.file_field :image %></dd>
   <% end %>
-</p>
+</dl>
 
 <p><%= submit_tag "Submit DB" %></p>  
 <% end %>
+
+<a href="#" id="ajax-uploads">AJAX!</a>
