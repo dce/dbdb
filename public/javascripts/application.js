@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
   $("a#version-1").click(function() {
     $(".db-list a").click(function() {
       link = $(this);
@@ -13,6 +14,7 @@ $(document).ready(function() {
       });
       return false;
     });
+    return false;
   });
 
   $("a#version-2").click(function() {
@@ -30,6 +32,7 @@ $(document).ready(function() {
       });
       return false;
     });
+    return false;
   });
 
   jQuery.fn.loadContentInOrder = function() {
@@ -58,6 +61,7 @@ $(document).ready(function() {
       $(this).parents("dt").next("dd").toggle();
       return false;
     });
+    return false;
   });
 
   jQuery.fn.loadBagfactor = function() {
