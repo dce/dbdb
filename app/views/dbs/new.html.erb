@@ -9,7 +9,7 @@
 
   <% fields_for "db[avatar]" do |avatar| %>
   <dt><%= avatar.label :image, "Photo" %></dt>
-  <dd><%= avatar.file_field :image %></dd>
+  <dd><%= avatar.file_field :image, :class => "file" %></dd>
   <% end %>
 </dl>
 

@@ -8,6 +8,15 @@ h1 {
 
 a { color: #333; text-decoration: none; border-bottom: 1px dotted #333; }
 
+iframe {
+  border: none;
+  height: 70px;
+}
+
+input.file {
+  margin-bottom: 50px;
+}
+
 #container { 
   width: 640px;
   margin: 0 auto;
@@ -70,4 +79,11 @@ dl.db-list dd.spinner {
   background: #eee url(/images/spinner.gif) center center no-repeat;
 }
 
+dl.new-db dt {
+  float: left;
+  width: 100px;
+}
 
+dl.new-db dd {
+  margin-bottom: 20px;
+}
