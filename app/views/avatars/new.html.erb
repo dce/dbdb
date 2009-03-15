@@ -1,0 +1,3 @@
+<% form_for @avatar, :html => { :multipart => true } do |f| %>
+  <%= f.file_field :image, :onchange => "$(this).parents('form').submit()" %>
+<% end %>
