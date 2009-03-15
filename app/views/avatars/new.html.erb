@@ -1,3 +1,9 @@
 <% form_for @avatar, :html => { :multipart => true } do |f| %>
-  <%= f.file_field :image, :onchange => "$(this).parents('form').submit()" %>
+  <%= f.file_field :image %>
+<% end %>
+
+<% javascript_tag do %>
+  $("input").change(function() {
+    $(this).hide().after('<%= image_tag "spinner.gif" %>').parents('form').submit();
+  });
 <% end %>
