@@ -1,4 +1,11 @@
 $(document).ready(function() {
+  $("#options.closed").livequery("click", function() {
+    $(this).animate({"top": "0px"}).removeClass("closed").addClass("open");
+  });
+
+  $("#options.open").livequery("click", function() {
+    $(this).animate({"top": "-70px"}).removeClass("open").addClass("closed");
+  });
 
   $("a#version-1").click(function() {
     $(".db-list a").click(function() {

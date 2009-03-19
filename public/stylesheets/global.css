@@ -22,6 +22,28 @@ input.file {
   margin: 0 auto;
 }
 
+#options {
+  position: absolute;
+  margin: 0;
+  top: -70px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #ff0;
+}
+
+#options span {
+  display: block;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#options ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
 span.label {
   font-size: .667em;
   color: #666;
