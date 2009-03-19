@@ -9,6 +9,7 @@ $(document).ready(function() {
 
   $("#options a").click(function() {
     $("#notice").text($(this).text());
+    $("#options").animate({"top": "-85px"}).removeClass("open").addClass("closed");
   });
 
   $("a#version-1").click(function() {
