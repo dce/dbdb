@@ -32,13 +32,13 @@ input.file {
 
 #options {
   position: absolute;
-  margin: 0;
-  top: -85px;
-  right: 20px;
-  padding: 10px 20px;
+  top: 20px;
+  left: -150px;
+  padding: 20px;
   background-color: #ff0;
   z-index: 100;
   opacity: 0.2;
+  width: 130px;
 }
 
 #options span {
@@ -70,6 +70,12 @@ span.label {
   font-size: .667em;
   color: #666;
   display: block;
+}
+
+.form {
+  background-color: #E7D3DE;
+  border: 1px solid #A9324E;
+  padding: 20px;
 }
 
 dl { padding: 0; margin: 0; }

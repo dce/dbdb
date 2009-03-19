@@ -1,15 +1,15 @@
 $(document).ready(function() {
   $("#options.closed").livequery("click", function() {
-    $(this).animate({"top": "0px"}).removeClass("closed").addClass("open");
+    $(this).animate({"left": "0px"}).removeClass("closed").addClass("open");
   });
 
   $("#options.open").livequery("click", function() {
-    $(this).animate({"top": "-85px"}).removeClass("open").addClass("closed");
+    $(this).animate({"left": "-150px"}).removeClass("open").addClass("closed");
   });
 
   $("#options a").click(function() {
     $("#notice").fadeIn().find("span").text($(this).text());
-    $("#options").animate({"top": "-85px"}).removeClass("open").addClass("closed");
+    $("#options").animate({"left": "-150px"}).removeClass("open").addClass("closed");
   });
 
   $("#options").hover(function() {
