@@ -7,6 +7,10 @@ $(document).ready(function() {
     $(this).animate({"top": "-70px"}).removeClass("open").addClass("closed");
   });
 
+  $("#options a").click(function() {
+    $("#notice").text($(this).text());
+  });
+
   $("a#version-1").click(function() {
     $(".db-list a").click(function() {
       link = $(this);
