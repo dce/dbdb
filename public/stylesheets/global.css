@@ -21,6 +21,7 @@ input.file {
   width: 660px;
   height: 265px;
   padding: 0;
+  text-align: center;
 }
 
 #container { 
@@ -52,11 +53,15 @@ input.file {
 }
 
 #notice {
-  font-size: 1.2em;
+  display: none;
+  padding-top: 200px;
+}
+
+#notice span {
+  font-size: 1.5em;
   font-weight: bold;
-  text-align: center;
-  margin: 0;
-  padding: 0;
+  padding: 10px;
+  background-color: yellow;
 }
 
 span.label {
