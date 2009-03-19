@@ -12,6 +12,12 @@ $(document).ready(function() {
     $("#options").animate({"top": "-85px"}).removeClass("open").addClass("closed");
   });
 
+  $("#options").hover(function() {
+    $(this).animate({"opacity": "1"});
+  }, function() {
+    $(this).animate({"opacity": "0.2"});
+  });
+
   $("a#version-1").click(function() {
     $(".db-list a").click(function() {
       link = $(this);

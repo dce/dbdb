@@ -37,6 +37,7 @@ input.file {
   padding: 10px 20px;
   background-color: #ff0;
   z-index: 100;
+  opacity: 0.2;
 }
 
 #options span {
