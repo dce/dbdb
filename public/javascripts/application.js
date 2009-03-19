@@ -69,7 +69,7 @@ $(document).ready(function() {
     });
 
     $(".db-list a").click(function() {
-      $(this).parents("dt").next("dd").toggle();
+      $(this).parents("dt").next("dd").slideToggle();
       return false;
     });
     return false;
