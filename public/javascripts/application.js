@@ -4,7 +4,7 @@ $(document).ready(function() {
   });
 
   $("#options.open").livequery("click", function() {
-    $(this).animate({"top": "-70px"}).removeClass("open").addClass("closed");
+    $(this).animate({"top": "-85px"}).removeClass("open").addClass("closed");
   });
 
   $("#options a").click(function() {
