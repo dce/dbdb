@@ -67,6 +67,7 @@ dl.db-list dt {
 }
 
 dl.db-list span.position {
+  position: absolute;
   display: block;
   font-size: 4em;
   float: left;

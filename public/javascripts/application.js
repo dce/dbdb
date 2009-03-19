@@ -31,9 +31,9 @@ $(document).ready(function() {
   $("a#version-2").click(function() {
     $(".db-list a").click(function() {
       link = $(this);
-      link.parents("dt").after("<dd class=\"spinner\"></dd>");
+      link.parents("dt").after("<dd class=\"spinner\"></dd>").next("dd").hide().slideToggle();
       link.unbind('click').click(function() {
-        $(this).parents("dt").next("dd").toggle();
+        $(this).parents("dt").next("dd").slideToggle();
         return false;
       });
       $.ajax({url: $(this).attr("href"),
