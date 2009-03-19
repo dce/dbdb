@@ -77,7 +77,6 @@ dl { padding: 0; margin: 0; }
 dl.db-list dt {
   position: relative;
   z-index: 100;
-  margin-bottom: 2em;
   clear: both;
 }
 
@@ -108,6 +107,7 @@ dl.db-list dd {
   padding: 1em;
   position: relative;
   top: -1em;
+  margin-bottom: .5em;
 }
 
 dl.db-list dd img.avatar {
