@@ -1,0 +1,451 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Optimizing Perceived Performance</title>
+  <link rel="stylesheet" href="stylesheets/screen.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="stylesheets/prettify.css" type="text/css" media="screen" charset="utf-8">
+  <script src="javascripts/jquery-1.3.2.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="javascripts/prettify.js" type="text/javascript"></script>
+  <script src="javascripts/jquery.jquinote.js" type="text/javascript" charset="utf-8"></script>
+  <script src="javascripts/opp.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <h1>Optimizing Perceived Performance</h1>
+
+  <div id="slide-container">
+    <ol id="slides">
+      <li>
+        <h2>Optimizing Perceived Performance</h2>
+      </li>
+
+      <li>
+        <h2>About Me</h2>
+
+        <span class="url">http://dbdb.local/</span>
+
+        <div class="code executable">
+
+<pre class="prettyprint">
+$("#header").hide();
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <h2>My Startup</h2>
+      </li>
+
+      <li>
+        <h2>DBDB</h2>
+      </li>
+
+      <li>
+        <h2>http://github.com/dce/dbdb</h2>
+      </li>
+
+      <li>
+        <h2>http://github.com/dce/dbdb</h2>
+
+        <h3>public/javascripts/application.js</h3>
+      </li>
+
+      <li>
+        <div class="code">
+
+<pre class="prettyprint">
+def bagfactor
+  sleep(2)
+  rand(50) / 10.0
+end
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <h2>It could happen to you</h2>
+      </li>
+
+      <li>
+        <h2>First Impressions</h2>
+      </li>
+
+      <li>
+        <h2>Up to...</h2>
+
+        <table>
+          <tr>
+            <td>0.1 second</td>
+            <td>instantaneous</td>
+          </tr>
+
+          <tr>
+            <td>1 second</td>
+            <td>responsive</td>
+          </tr>
+
+          <tr>
+            <td>10 seconds</td>
+            <td>slow</td>
+          </tr>
+
+          <tr>
+            <td>&lt; 10 seconds</td>
+            <td>gone</td>
+          </tr>
+        </table>
+
+        – About Face 3
+      </li>
+
+      <li>
+        <h2>Bring in the AJAX</h2>
+      </li>
+
+      <li>
+        <h2>Some Definitions</h2>
+      </li>
+
+      <li>
+        <h2>Progressive Enhancement</h2>
+      </li>
+
+      <li>
+        <h2>Unobtrusive Javascript</h2>
+      </li>
+
+      <li>
+        <h2>HIJAX</h2>
+      </li>
+
+      <li>
+        <h2>jQuery</h2>
+      </li>
+
+      <li>
+        <div class="code">
+
+<pre class="prettyprint">
+class DbsController < ApplicationController
+  def show
+    @db = Db.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js do
+        render :partial => "profile", :locals => { :db => @db }
+      end
+    end
+  end
+end
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <div class="code executable">
+
+<pre class="prettyprint">
+$(".db-list a").click(function() {
+  link = $(this);
+  $.ajax({url: $(this).attr("href"),
+    success: function(src) {
+      link.parents("dt").after(src);
+      link.unbind('click').click(function() {
+        $(this).parents("dt").next("dd").toggle();
+        return false;
+      })
+    }
+  });
+  return false;
+});
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <h2>Make It Snappy</h2>
+      </li>
+
+      <li>
+        <div class="code executable">
+
+<pre class="prettyprint">
+$(".db-list a").click(function() {
+  link = $(this);
+  link.parents("dt").after('&lt;dd class="spinner">&lt;/dd>');
+
+  link.unbind("click").click(function() {
+    link.parents("dt").next("dd").slideToggle();
+    return false;
+  });
+
+  $.ajax({url: link.attr("href"),
+    success: function(src) {
+      link.parents("dt").next("dd").replaceWith(src);
+    }
+  });
+  return false;
+});
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <h2>Take Advantage of Downtime</h2>
+      </li>
+
+      <li>
+        [Gmail Screenshot]
+      </li>
+
+      <li>
+        <div class="code executable">
+
+<pre class="prettyprint">
+$(".db-list a").each(function() {
+  $(this).parents("dt").after("<dd class=\"spinner\"></dd>")
+    .next("dd").hide();
+});
+
+$(".db-list a").click(function() {
+  $(this).parents("dt").next("dd").slideToggle();
+  return false;
+});
+
+$(".db-list a:first").each(function() {
+  $(this).loadContentInOrder();
+}); 
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <div class="code executable">
+
+<pre class="prettyprint">
+jQuery.fn.loadContentInOrder = function() {
+  link = this;
+  $.ajax({url: this.attr("href"),
+    success: function(src) {
+      link.parents("dt").next("dd").replaceWith(src).next("dt")
+        .find("a").loadContentInOrder();
+    }
+  });
+};
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <h2>Isolate Bottlenecks</h2>
+      </li>
+
+      <li>
+        [GitHub Screenshot]
+      </li>
+
+      <li>
+        <h2>JSON</h2>
+      </li>
+
+      <li>
+        <div class="code">
+
+<pre class="prettyprint">
+{ "db": {
+    "id": 13,
+    "name": "Tyler Hansbrough",
+    "occupation": "UNC Basketball Player",
+    "bagfactor": 1.3,
+    "avatar_id": 61
+  }
+}
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <div class="code">
+
+<pre class="prettyprint">
+class DbsController < ApplicationController
+  def show
+    @db = Db.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js { ... }
+      format.json do
+        render :json => { :bagfactor => @db.bagfactor }
+      end
+    end
+  end
+end
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <div class="code">
+
+<pre class="prettyprint">
+class DbsController < ApplicationController
+  def show
+    @db = Db.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js { ... }
+      format.json do
+        render :json => { :bagfactor => @db.bagfactor }
+      end
+    end
+  end
+end
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <div class="code executable">
+
+<pre class="prettyprint">
+$("img.spinner:first").each(function() { 
+  $(this).loadBagfactor();
+});
+
+jQuery.fn.loadBagfactor = function() { 
+  img = this; 
+  $.ajax({url: this.parents("dd").prev("dt")
+      .find("a").attr("href"), 
+    data: { format: "json" }, dataType: "json", 
+    success: function(db) { 
+      img.replaceWith(db.bagfactor); 
+      $("img.spinner:first").loadBagfactor(); 
+    } 
+  });
+}; 
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <h2>The best solution?</h2>
+      </li>
+
+      <li>
+        <h2>The worst solution?</h2>
+      </li>
+
+      <li>
+        <h2>New Problem</h2>
+      </li>
+
+      <li>
+        [Python Image]
+      </li>
+
+      <li>
+        <h2>Remove Blocking Operations</h2>
+      </li>
+
+      <li>
+        <h2>The Usual Way</h2>
+
+        <ul>
+          <li>Hidden iFrame</li>
+          <li>Second form w/ iFrame as target</li>
+          <li>Server sends back JS to update page</li>
+        </ul>
+      </li>
+
+      <li>
+        <h2>Something Sorta Nuts</h2>
+      </li>
+
+      <li>
+        <div class="code executable">
+
+<pre class="prettyprint">
+$("a#ajax-uploads").click(function() {
+  $("input[type=file]").replaceWith(
+    '<iframe src="/avatars/new"></iframe>');
+  return false;
+});
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <div class="code">
+
+<pre class="prettyprint">
+<% form_for @avatar, :html => { :multipart => true } do |f| %>
+  <%= f.file_field :image %>
+<% end %>
+
+<% javascript_tag do %>
+  $("input").change(function() {
+    $(this).hide().after('<%= image_tag "spinner.gif" %>')
+      .parents('form').submit(); 
+  }); 
+<% end %>
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <div class="code">
+
+<pre class="prettyprint">
+<%= image_tag @avatar.image.url(:thumb) %>
+
+<% javascript_tag do %>
+  $("form", top.document).append(
+    '<%= hidden_field_tag "db[avatar_id]", @avatar.id %>');
+<% end %>
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <h2>Cool? Lame?</h2>
+      </li>
+
+      <li>
+        <h2>Conclusion</h2>
+      </li>
+
+      <li>
+        <h2>Consider perceived performance</h2>
+      </li>
+
+      <li>
+        <h2>Write your own JS</h2>
+      </li>
+
+      <li>
+        <h2>Thank You</h2>
+
+        <h3>[Spkr8 Link]</h3>
+      </li>
+
+      <li>
+        <h2>Questions?</h2>
+      </li>
+    </ol>
+  </div>
+</body>
+</html>
