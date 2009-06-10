@@ -1,22 +1,22 @@
 <div class="form">
+  <h2>Add a DB to the DB</h2>
+  <% form_for @db, :html => { :multipart => true } do |f| %>
 
-<% form_for @db, :html => { :multipart => true } do |f| %>
+  <dl class="new-db">
+    <dt><%= f.label :name %></dt>
+    <dd><%= f. text_field  :name %></dd>
 
-<dl class="new-db">
-  <dt><%= f.label :name %></dt>
-  <dd><%= f. text_field  :name %></dd>
+    <dt><%= f.label :occupation %></dt>
+    <dd><%= f. text_field  :occupation %></dd>
 
-  <dt><%= f.label :occupation %></dt>
-  <dd><%= f. text_field  :occupation %></dd>
+    <% fields_for "db[avatar]" do |avatar| %>
+    <dt><%= avatar.label :image, "Photo" %></dt>
+    <dd><%= avatar.file_field :image, :class => "file" %></dd>
+    <% end %>
+  </dl>
 
-  <% fields_for "db[avatar]" do |avatar| %>
-  <dt><%= avatar.label :image, "Photo" %></dt>
-  <dd><%= avatar.file_field :image, :class => "file" %></dd>
+  <p><%= submit_tag "Submit DB" %></p>
   <% end %>
-</dl>
-
-<p><%= submit_tag "Submit DB" %></p>  
-<% end %>
 
 </div>
 

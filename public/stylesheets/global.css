@@ -3,6 +3,7 @@ body {
 }
 
 h1 { display: none; }
+h2 { margin: 0 0 1em 0; padding: 0; color: #A9324E; }
 
 a { color: #333; text-decoration: none; border-bottom: 1px dotted #333; }
 a:hover { color: #900; border-color: #900; }
