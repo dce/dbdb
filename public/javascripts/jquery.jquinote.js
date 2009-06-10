@@ -11,7 +11,7 @@
 
       slides.css({ "width": slideList.size() * container.width() });
 
-      slides.current = 0;
+      slides.current = (location.hash == "") ? 0 : location.hash.substr(1);
 
       slides.next = function() {
         if (this.current < slideList.size() - 1) {
@@ -30,6 +30,8 @@
       slides.update = function() {
         this.animate({ marginLeft: -1 * this.current * container.width() });
       };
+
+      slides.update();
 
       option_code = '<div class="options">' +
           '<a href="#" class="next">&rarr;</a>' +
