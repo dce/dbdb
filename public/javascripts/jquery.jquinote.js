@@ -82,8 +82,8 @@
       $("span.url", container).each(function() {
         url = $(this).hide().text();
 
-        showButton = $('<a href="#">site</a>').click(function() {
-          $("div.lightbox").show().find("iframe").attr("src", url);
+        showButton = $('<a href="' + url + '">site</a>').click(function() {
+          $("div.lightbox").show().find("iframe").attr("src", $(this).attr("href"));
           return false;
         });
 
