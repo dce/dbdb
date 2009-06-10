@@ -117,15 +117,14 @@ div.lightbox {
   top: 50%;
   left: 50%;
   margin: -200px 0 0 -450px;
-  height: 600px;
-  width: 900px;
-  background: white url(../images/ajax-loader.gif) no-repeat center;
-  border: 1px solid #ccc;
+  height: 720px;
+  width: 850px;
+  background: url(../images/browser.png) no-repeat center;
 }
 
 div.lightbox iframe {
-  height: 560px;
-  width: 860px;
-  margin: 20px;
+  height: 576px;
+  width: 760px;
+  margin-top: 75px;
   border: 0;
 }
