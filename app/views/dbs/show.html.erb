@@ -2,5 +2,7 @@
   <dt>
     <span class="name"><%= link_to @db.name, @db %></span>
   </dt>
-  <%= render :partial => "profile", :locals => { :db => @db } %>
+  <dd>
+    <%= render :partial => "profile", :locals => { :db => @db } %>
+  </dd>
 </dl>

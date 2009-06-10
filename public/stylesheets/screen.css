@@ -4,6 +4,7 @@ body {
   text-align: center;
   font-family: Helvetica, sans-serif;
   background-color: #eee;
+  overflow-y: scroll;
 }
 
 a {
@@ -114,7 +115,6 @@ div.executable a.apply-js {
 div.lightbox {
   display: none;
   position: absolute;
-  top: 50%;
   left: 50%;
   margin: -260px 0 0 -425px;
   height: 720px;

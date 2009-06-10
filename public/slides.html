@@ -21,16 +21,6 @@
 
       <li>
         <h2>About Me</h2>
-
-        <span class="url">http://dbdb.local/</span>
-
-        <div class="code executable">
-
-<pre class="prettyprint">
-$("#header").hide();
-</pre>
-
-        </div>
       </li>
 
       <li>
@@ -39,6 +29,8 @@ $("#header").hide();
 
       <li>
         <h2>DBDB</h2>
+
+        <span class="url">http://dbdb.local/home</span>
       </li>
 
       <li>
@@ -48,7 +40,7 @@ $("#header").hide();
       <li>
         <h2>http://github.com/dce/dbdb</h2>
 
-        <h3>public/javascripts/application.js</h3>
+        <h3>public/slides.html</h3>
       </li>
 
       <li>
@@ -98,6 +90,9 @@ end
         </table>
 
         – About Face 3
+
+
+        <span class="url">http://dbdb.local/</span>
       </li>
 
       <li>
@@ -152,7 +147,7 @@ $(".db-list a").click(function() {
   link = $(this);
   $.ajax({url: $(this).attr("href"),
     success: function(src) {
-      link.parents("dt").after(src);
+      link.parents("dt").after("&lt;dd>" + src + "&lt;/dd>");
       link.unbind('click').click(function() {
         $(this).parents("dt").next("dd").toggle();
         return false;
@@ -164,6 +159,8 @@ $(".db-list a").click(function() {
 </pre>
 
         </div>
+
+        <span class="url">http://dbdb.local/</span>
       </li>
 
       <li>
@@ -185,7 +182,8 @@ $(".db-list a").click(function() {
 
   $.ajax({url: link.attr("href"),
     success: function(src) {
-      link.parents("dt").next("dd").replaceWith(src);
+      link.parents("dt").next("dd").html(src)
+        .removeClass("spinner");
     }
   });
   return false;
@@ -193,6 +191,8 @@ $(".db-list a").click(function() {
 </pre>
 
         </div>
+
+        <span class="url">http://dbdb.local/</span>
       </li>
 
       <li>
@@ -207,8 +207,22 @@ $(".db-list a").click(function() {
         <div class="code executable">
 
 <pre class="prettyprint">
+jQuery.fn.loadContentInOrder = function() {
+  return this.each(function() {
+    link = $(this);
+
+    $.ajax({url: link.attr("href"),
+      success: function(src) {
+        display = link.parents("dt").next("dd").html(src)
+          .removeClass("spinner")
+          .next("dt").find("a").loadContentInOrder();
+      }
+    });
+  });
+};
+
 $(".db-list a").each(function() {
-  $(this).parents("dt").after("<dd class=\"spinner\"></dd>")
+  $(this).parents("dt").after("&lt;dd class=\"spinner\">&lt;/dd>")
     .next("dd").hide();
 });
 
@@ -217,30 +231,12 @@ $(".db-list a").click(function() {
   return false;
 });
 
-$(".db-list a:first").each(function() {
-  $(this).loadContentInOrder();
-}); 
+$(".db-list a:first").loadContentInOrder();
 </pre>
 
         </div>
-      </li>
 
-      <li>
-        <div class="code executable">
-
-<pre class="prettyprint">
-jQuery.fn.loadContentInOrder = function() {
-  link = this;
-  $.ajax({url: this.attr("href"),
-    success: function(src) {
-      link.parents("dt").next("dd").replaceWith(src).next("dt")
-        .find("a").loadContentInOrder();
-    }
-  });
-};
-</pre>
-
-        </div>
+        <span class="url">http://dbdb.local/</span>
       </li>
 
       <li>
@@ -294,36 +290,11 @@ end
       </li>
 
       <li>
-        <div class="code">
-
-<pre class="prettyprint">
-class DbsController < ApplicationController
-  def show
-    @db = Db.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.js { ... }
-      format.json do
-        render :json => { :bagfactor => @db.bagfactor }
-      end
-    end
-  end
-end
-</pre>
-
-        </div>
-      </li>
-
-      <li>
         <div class="code executable">
 
 <pre class="prettyprint">
-$("img.spinner:first").each(function() { 
-  $(this).loadBagfactor();
-});
-
 jQuery.fn.loadBagfactor = function() { 
-  img = this; 
+  img = $(this); 
   $.ajax({url: this.parents("dd").prev("dt")
       .find("a").attr("href"), 
     data: { format: "json" }, dataType: "json", 
@@ -333,9 +304,15 @@ jQuery.fn.loadBagfactor = function() { 
     } 
   });
 }; 
+
+$("img.spinner:first").each(function() { 
+  $(this).loadBagfactor();
+});
 </pre>
 
         </div>
+
+        <span class="url">http://dbdb.local/v4</span>
       </li>
 
       <li>

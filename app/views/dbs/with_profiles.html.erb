@@ -4,6 +4,8 @@
     <span class="position"><%= index + 1 %></span>
     <span class="name"><%= link_to db.name, db %></span>
   </dt>
-  <%= render :partial => "profile", :locals => { :db => db } %>
+  <dd>
+    <%= render :partial => "profile", :locals => { :db => db } %>
+  </dd>
 <% end %>
 </dl>

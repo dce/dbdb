@@ -75,6 +75,7 @@
 
         codeButton = $('<a href="#">code</a>').click(function() {
           $(this).parents("li").find("div.code").fadeIn();
+          return false;
         });
 
         codeBlock.append(applyButton);

@@ -1,3 +1,5 @@
+/*
+
 $(document).ready(function() {
   $("#options.closed").livequery("click", function() {
     $(this).animate({"left": "0px"}).removeClass("closed").addClass("open");
@@ -105,3 +107,4 @@ $(document).ready(function() {
   });
 });
 
+*/
