@@ -117,6 +117,7 @@ ol#slides p.caption {
 ol#slides p.citation {
   font-style: italic;
   text-align: right;
+  margin-right: 100px;
 }
 
 ol#slides table td, ol#slides table th {
