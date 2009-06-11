@@ -104,6 +104,12 @@ ol#slides img.top-pad {
   margin-top: 100px;
 }
 
+ol#slides blockquote {
+  margin: ;
+  font: italic 2em Georgia, serif;
+  line-height: 2em;
+}
+
 ol#slides p.caption {
   text-align: center;
 }
