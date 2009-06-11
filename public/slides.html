@@ -405,6 +405,92 @@ $("input[type=file]").replaceWith(
       </li>
 
       <li>
+        <h2>The Future</h2>
+
+        <h3>Rails 3</h3>
+      </li>
+
+      <li>
+        <div class="code">
+
+<pre class="prettyprint">
+&lt;%= link_to_remote @db.name, :url => db_url(@db),
+       :method => :get %>
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <div class="code">
+
+<pre class="prettyprint">
+# &lt;%= link_to_remote @db.name, :url => db_url(@db),
+#       :method => :get %>
+
+&lt;a href="#" onclick="$.ajax({data:'authenticity_token=' +
+  encodeURIComponent('2b79b50423e099...'),
+  dataType:'script', type:'get',
+  url:'http://dbdb.local/dbs/13'}); return false;">
+    Tyler Hansbrough
+&lt;/a>
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <div class="code">
+
+<pre class="prettyprint">
+# &lt;%= link_to_remote @db.name, :url => db_url(@db),
+#       :method => :get %>
+
+&lt;a href="/dbs/13" data-remote="true" data-method="get">
+  Tyler Hansbrough
+&lt;/a>
+</pre>
+
+        </div>
+      </li>
+
+      <li>
+        <div class="code">
+
+<pre class="prettyprint">
+# &lt;%= link_to_remote @db.name, :url => db_url(@db),
+#       :method => :get %>
+
+# &lt;a href="/dbs/13" data-remote="true" data-method="get">
+#   Tyler Hansbrough
+# &lt;/a>
+
+$("a[data-remote=true]").click(function() {
+  $.ajax({url: $(this).attr("href"),
+    method = this.dataset.method;
+    success: function(src) {
+      link.parents("dt").after("&lt;dd>" + src + "&lt;/dd>");
+    }
+  });
+});
+</pre>
+
+        </div>
+      </li>
+
+       <li>
+         <div class="code">
+
+ <pre class="prettyprint">
+ &lt;a href="/dbs/13" class="remote">
+   Tyler Hansbrough
+ &lt;/a>
+ </pre>
+
+         </div>
+       </li>
+
+      <li>
         <h2>Conclusion</h2>
       </li>
 
