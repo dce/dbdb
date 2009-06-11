@@ -360,9 +360,9 @@ $("img.spinner:first").each(function() { 
 
 &lt;% javascript_tag do %>
   $("input").change(function() {
-    $(this).hide().after('&lt;%= image_tag "spinner.gif" %>')
-      .parents('form').submit(); 
-  }); 
+    $(this).hide().after('&lt;%= image_tag "spinner.gif" %>');
+    $(this).parents('form').submit();
+  });
 &lt;% end %>
 </pre>
 

@@ -1,5 +1,5 @@
 <%= image_tag @avatar.image.url(:thumb) %>
 
 <% javascript_tag do %>
-  $("form", top.document).append('<%= hidden_field_tag "db[avatar_id]", @avatar.id %>');
+  $("form", parent.document).append('<%= hidden_field_tag "db[avatar_id]", @avatar.id %>');
 <% end %>

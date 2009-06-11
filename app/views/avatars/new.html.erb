@@ -4,6 +4,7 @@
 
 <% javascript_tag do %>
   $("input").change(function() {
-    $(this).hide().after('<%= image_tag "spinner.gif" %>').parents('form').submit();
+    $(this).hide().after('<%= image_tag "spinner.gif" %>');
+    $(this).parents('form').submit();
   });
 <% end %>
