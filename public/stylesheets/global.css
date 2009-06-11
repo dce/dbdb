@@ -2,7 +2,14 @@ body {
   font: 12.5px "Lucida Grande", verdana, sans-serif; margin: 0; padding: 0;
 }
 
-h1 { display: none; }
+h1 a {
+  display: block;
+  text-indent: -9999px;
+  background: url(/images/header.jpg) 0 -20px no-repeat;
+  width: 660px;
+  height: 265px;
+  border: none;
+}
 h2 { margin: 0 0 1em 0; padding: 0; color: #A9324E; }
 
 a { color: #333; text-decoration: none; border-bottom: 1px dotted #333; }
@@ -19,7 +26,6 @@ input.file {
 
 #header {
   margin: 0 auto;
-  background: url(/images/header.jpg) 0 -20px no-repeat;
   width: 660px;
   height: 265px;
   padding: 0;
