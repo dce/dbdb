@@ -177,7 +177,7 @@ $(".db-list a").click(function() {
     .next("dd").hide().slideDown();
 
   link.unbind("click").click(function() {
-    link.parents("dt").next("dd").slideToggle();
+    $(this).parents("dt").next("dd").slideToggle();
     return false;
   });
 
