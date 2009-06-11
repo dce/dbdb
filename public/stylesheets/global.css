@@ -26,12 +26,13 @@ input.file {
   text-align: center;
 }
 
-#container { 
+#container {
   width: 660px;
   margin: 0 auto;
 }
 
 #options {
+  display: none;
   position: absolute;
   top: 20px;
   left: -150px;

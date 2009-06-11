@@ -140,7 +140,7 @@ end
       </li>
 
       <li>
-        <div class="code executable">
+        <div class="code executable" title="HIJAX">
 
 <pre class="prettyprint">
 $(".db-list a").click(function() {
@@ -168,12 +168,13 @@ $(".db-list a").click(function() {
       </li>
 
       <li>
-        <div class="code executable">
+        <div class="code executable" title="More Responsive">
 
 <pre class="prettyprint">
 $(".db-list a").click(function() {
   link = $(this);
-  link.parents("dt").after('&lt;dd class="spinner">&lt;/dd>');
+  link.parents("dt").after('&lt;dd class="spinner">&lt;/dd>')
+    .next("dd").hide().slideDown();
 
   link.unbind("click").click(function() {
     link.parents("dt").next("dd").slideToggle();
@@ -204,7 +205,7 @@ $(".db-list a").click(function() {
       </li>
 
       <li>
-        <div class="code executable">
+        <div class="code executable" title="Background Loading">
 
 <pre class="prettyprint">
 jQuery.fn.loadContentInOrder = function() {
@@ -249,9 +250,7 @@ $(".db-list a:first").loadContentInOrder();
 
       <li>
         <h2>JSON</h2>
-      </li>
 
-      <li>
         <div class="code">
 
 <pre class="prettyprint">
@@ -290,7 +289,7 @@ end
       </li>
 
       <li>
-        <div class="code executable">
+        <div class="code executable" title="Isolate Bottlenecks">
 
 <pre class="prettyprint">
 jQuery.fn.loadBagfactor = function() { 
@@ -350,51 +349,54 @@ $("img.spinner:first").each(function() { 
       </li>
 
       <li>
-        <div class="code executable">
+        <h2>avatars/new.html.erb</h2>
 
-<pre class="prettyprint">
-$("a#ajax-uploads").click(function() {
-  $("input[type=file]").replaceWith(
-    '<iframe src="/avatars/new"></iframe>');
-  return false;
-});
-</pre>
-
-        </div>
-      </li>
-
-      <li>
         <div class="code">
 
 <pre class="prettyprint">
-<% form_for @avatar, :html => { :multipart => true } do |f| %>
-  <%= f.file_field :image %>
-<% end %>
+&lt;% form_for @avatar, :html => { :multipart => true } do |f| %>
+  &lt;%= f.file_field :image %>
+&lt;% end %>
 
-<% javascript_tag do %>
+&lt;% javascript_tag do %>
   $("input").change(function() {
-    $(this).hide().after('<%= image_tag "spinner.gif" %>')
+    $(this).hide().after('&lt;%= image_tag "spinner.gif" %>')
       .parents('form').submit(); 
   }); 
-<% end %>
+&lt;% end %>
 </pre>
 
         </div>
       </li>
 
       <li>
+        <h2>avatars/create.html.erb</h2>
+
         <div class="code">
 
 <pre class="prettyprint">
-<%= image_tag @avatar.image.url(:thumb) %>
+&lt;%= image_tag @avatar.image.url(:thumb) %>
 
-<% javascript_tag do %>
+&lt;% javascript_tag do %>
   $("form", top.document).append(
-    '<%= hidden_field_tag "db[avatar_id]", @avatar.id %>');
-<% end %>
+    '&lt;%= hidden_field_tag "db[avatar_id]", @avatar.id %>');
+&lt;% end %>
 </pre>
 
         </div>
+      </li>
+
+      <li>
+        <div class="code executable" title="Non-Blocking Upload">
+
+<pre class="prettyprint">
+$("input[type=file]").replaceWith(
+  '&lt;iframe src="/avatars/new">&lt;/iframe>');
+</pre>
+
+        </div>
+
+        <span class="url">http://dbdb.local/dbs/new</span>
       </li>
 
       <li>

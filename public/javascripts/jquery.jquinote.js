@@ -70,8 +70,11 @@
         codeBlock = $(this);
 
         applyButton = $('<a href="#" class="apply-js">DO IT</a>').click(function() {
-          codeBlock = $(this).parents("div.code")
-          frames[frames.length - 1].eval($("pre", codeBlock).text());
+          code  = $(this).parents("div.code");
+          frame = frames[frames.length - 1];
+
+          frame.eval($("pre",code).text());
+          frame.eval('$("#notice").fadeIn().find("span").text("' + code.attr("title") + '");');
           return false;
         });
 
