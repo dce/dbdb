@@ -45,10 +45,12 @@
 
       $("a.prev", container).click(function() {
         slides.prev();
+        return false;
       });
 
       $("a.next", container).click(function() {
         slides.next();
+        return false;
       });
 
       $("body").keydown(function(key) {
