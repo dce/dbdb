@@ -5,8 +5,8 @@
       slides    = $("#slides", container);
       slideList = $("#slides>li", container);
 
-      $('body').append('<div class="lightbox"><iframe /></div>').click(function() {
-        $('div.lightbox').fadeOut();
+      $('body').append('<div class="lightbox"><iframe src="spinner.html" /></div>').click(function() {
+        $('div.lightbox').fadeOut().find("iframe").attr("src", "spinner.html");
       });
 
       slides.css({ "width": slideList.size() * container.width() });
