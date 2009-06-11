@@ -95,14 +95,27 @@ ol#slides ul {
   margin-bottom: 20px;
 }
 
+ol#slides img {
+  display: block;
+  margin: 0 auto;
+}
+
+ol#slides img.top-pad {
+  margin-top: 100px;
+}
+
+ol#slides p.caption {
+  text-align: center;
+}
+
 div.executable {
   position: relative;
 }
 
 div.executable a.apply-js {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0;
+  right: 0;
 }
 
 div.lightbox {
