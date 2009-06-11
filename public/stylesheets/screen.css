@@ -46,7 +46,7 @@ div#slide-container {
   padding: 0;
   text-align: left;
   width: 800px;
-  height: 600px;
+  height: 700px;
   overflow: hidden;
   background-color: white;
   position: relative;
@@ -85,7 +85,7 @@ ol#slides>li {
   padding: 20px;
   display: block;
   width: 760px;
-  height: 560px;
+  height: 660px;
   float: left;
   position: relative;
 }
@@ -109,7 +109,7 @@ div.lightbox {
   display: none;
   position: absolute;
   left: 50%;
-  margin: -260px 0 0 -425px;
+  margin: -460px 0 0 -425px;
   height: 720px;
   width: 850px;
   background: url(../images/browser.png) no-repeat center;
