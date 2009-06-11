@@ -108,6 +108,16 @@ ol#slides p.caption {
   text-align: center;
 }
 
+ol#slides p.citation {
+  font-style: italic;
+  text-align: right;
+}
+
+ol#slides table td, ol#slides table th {
+  font-size: 2em;
+  padding: 0 100px 20px 0;
+}
+
 div.executable {
   position: relative;
 }
@@ -122,7 +132,7 @@ div.lightbox {
   display: none;
   position: absolute;
   left: 50%;
-  margin: -460px 0 0 -425px;
+  margin: -600px 0 0 -425px;
   height: 720px;
   width: 850px;
   background: url(../images/browser.png) no-repeat center;

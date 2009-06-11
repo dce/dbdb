@@ -17,33 +17,38 @@
     <ol id="slides">
       <li>
         <h2>Optimizing Perceived Performance</h2>
+
+        <img src="/images/ricer.jpg" />
       </li>
 
       <li>
         <h2>About Me</h2>
+
+        <ul>
+          <li>Fairfax, VA native</li>
+          <li>Durham, NC resident</li>
+          <li>Web Developer at Viget Labs</li>
+        </ul>
       </li>
 
       <li>
-        <h2>My Startup</h2>
-      </li>
+        <h2>My Startup: &ldquo;DBDB&rdquo;</h2>
 
-      <li>
-        <h2>DBDB</h2>
+        <h3>http://github.com/dce/dbdb</h3>
+
+        <ul>
+          <li>public/slides.html</li>
+          <li>app/controllers/dbs_controller.rb</li>
+          <li>public/javacripts/jquery.jquinote.js</li>
+        </ul>
+
 
         <span class="url">http://dbdb.local/home</span>
       </li>
 
       <li>
-        <h2>http://github.com/dce/dbdb</h2>
-      </li>
+        <img src="/images/bagfactor.jpg" />
 
-      <li>
-        <h2>http://github.com/dce/dbdb</h2>
-
-        <h3>public/slides.html</h3>
-      </li>
-
-      <li>
         <div class="code">
 
 <pre class="prettyprint">
@@ -65,9 +70,12 @@ end
       </li>
 
       <li>
-        <h2>Up to...</h2>
-
         <table>
+          <tr>
+            <th>Up to...</th>
+            <th>User response</th>
+          </tr>
+
           <tr>
             <td>0.1 second</td>
             <td>instantaneous</td>
@@ -89,8 +97,7 @@ end
           </tr>
         </table>
 
-        – About Face 3
-
+        <p class="citation">– About Face 3</p>
 
         <span class="url">http://dbdb.local/</span>
       </li>
@@ -129,8 +136,9 @@ class DbsController < ApplicationController
     respond_to do |format|
       format.html
       format.js do
-        render :partial => "profile", :locals => { :db => @db }
-      end
+        render :partial => "profile",
+          :locals => { :db => @db }
+      end
     end
   end
 end
@@ -290,6 +298,7 @@ end
 <pre class="prettyprint">
 jQuery.fn.loadBagfactor = function() { 
   img = $(this); 
+
   $.ajax({url: this.parents("dd").prev("dt")
       .find("a").attr("href"), 
     data: { format: "json" }, dataType: "json", 
