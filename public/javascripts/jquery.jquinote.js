@@ -68,18 +68,12 @@
         codeBlock = $(this);
 
         applyButton = $('<a href="#" class="apply-js">DO IT</a>').click(function() {
-          codeBlock = $(this).parents("li").find("div.code").fadeOut();
+          codeBlock = $(this).parents("div.code")
           frames[frames.length - 1].eval($("pre", codeBlock).text());
           return false;
         });
 
-        codeButton = $('<a href="#">code</a>').click(function() {
-          $(this).parents("li").find("div.code").fadeIn();
-          return false;
-        });
-
         codeBlock.append(applyButton);
-        codeBlock.parents("li").find(".options").append(codeButton);
       });
 
       $("span.url", container).each(function() {

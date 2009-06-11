@@ -95,15 +95,7 @@ ol#slides ul {
 }
 
 div.executable {
-  display: none;
-  border: 1px dotted #aaa;
-  background-color: #eee;
   position: relative;
-}
-
-div.executable pre {
-  padding: 10px;
-  margin: 0;
 }
 
 div.executable a.apply-js {
