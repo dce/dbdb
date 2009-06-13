@@ -92,7 +92,7 @@ end
           </tr>
 
           <tr>
-            <td>&lt; 10 seconds</td>
+            <td>&gt; 10 seconds</td>
             <td>gone</td>
           </tr>
         </table>
@@ -309,9 +309,7 @@ jQuery.fn.loadBagfactor = function() { 
   });
 }; 
 
-$("img.spinner:first").each(function() { 
-  $(this).loadBagfactor();
-});
+$("img.spinner:first").loadBagfactor();
 </pre>
 
         </div>
@@ -324,7 +322,7 @@ $("img.spinner:first").each(function() { 
 
         <ul>
           <li>Most information in least time</li>
-          <li>Completely obtrusive</li>
+          <li>Degredation fail</li>
           <li>Optimize for users' needs</li>
         </ul>
       </li>

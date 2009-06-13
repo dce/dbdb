@@ -9,6 +9,13 @@
         $('div.lightbox').fadeOut().find("iframe").attr("src", "spinner.html");
       });
 
+      option_code = '<div class="options">' +
+          '<a href="#" class="prev">&larr;</a>' +
+          '<a href="#" class="next">&rarr;</a>' +
+        '</div>';
+
+      $("body").append(option_code);
+
       slides.css({ "width": slideList.size() * container.width() });
 
       slides.current = (location.hash == "") ? 0 : location.hash.substr(1);
@@ -33,25 +40,17 @@
 
       slides.update();
 
-      option_code = '<div class="options">' +
-          '<a href="#" class="next">&rarr;</a>' +
-          '<a href="#" class="prev">&larr;</a>' +
-        '</div>';
-
-      slideList.append(option_code);
-
-      $("li:first a.prev", slides).addClass("disabled");
-      $("li:last  a.next", slides).addClass("disabled");
-
-      $("a.prev", container).click(function() {
+      $("a.prev").click(function() {
         slides.prev();
         return false;
       });
 
-      $("a.next", container).click(function() {
+      $("a.next").click(function() {
         slides.next();
         return false;
       });
+
+      slideList.append('<div class="buttons" />');
 
       $("body").keydown(function(key) {
         switch(key.which) {
@@ -67,10 +66,8 @@
       });
 
       $("div.executable", container).each(function() {
-        codeBlock = $(this);
-
         applyButton = $('<a href="#" class="apply-js">DO IT</a>').click(function() {
-          code  = $(this).parents("div.code");
+          code  = $(this).parents("li").find("div.code");
           frame = frames[frames.length - 1];
 
           frame.eval($("pre",code).text());
@@ -78,18 +75,18 @@
           return false;
         });
 
-        codeBlock.append(applyButton);
+        $(this).parents("li").find("div.buttons").append(applyButton);
       });
 
       $("span.url", container).each(function() {
         url = $(this).hide().text();
 
-        showButton = $('<a href="' + url + '">site</a>').click(function() {
+        showButton = $('<a href="' + url + '" class="siteButton">site</a>').click(function() {
           $("div.lightbox").show().find("iframe").attr("src", $(this).attr("href"));
           return false;
         });
 
-        $(this).parents("li").find(".options").append(showButton);
+        $(this).parents("li").find("div.buttons").append(showButton);
       });
     });
   };
