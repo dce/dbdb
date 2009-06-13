@@ -92,6 +92,11 @@ ol#slides>li {
   position: relative;
 }
 
+ol#slides li.centered {
+  text-align: center;
+  padding-top: 200px;
+}
+
 ol#slides ul {
   list-style-type: square;
   margin-bottom: 20px;
@@ -125,6 +130,10 @@ ol#slides p.citation {
 ol#slides table td, ol#slides table th {
   font-size: 2em;
   padding: 0 100px 20px 0;
+}
+
+pre.big {
+  font-size: 48px;
 }
 
 div.executable {
