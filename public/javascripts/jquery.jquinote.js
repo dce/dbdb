@@ -65,6 +65,17 @@
         }
       });
 
+      $("span.url", container).each(function() {
+        url = $(this).hide().text();
+
+        showButton = $('<a href="' + url + '" class="siteButton">site</a>').click(function() {
+          $("div.lightbox").show().find("iframe").attr("src", $(this).attr("href"));
+          return false;
+        });
+
+        $(this).parents("li").find("div.buttons").append(showButton);
+      });
+
       $("div.executable", container).each(function() {
         applyButton = $('<a href="#" class="apply-js">DO IT</a>').click(function() {
           code  = $(this).parents("li").find("div.code");
@@ -76,17 +87,6 @@
         });
 
         $(this).parents("li").find("div.buttons").append(applyButton);
-      });
-
-      $("span.url", container).each(function() {
-        url = $(this).hide().text();
-
-        showButton = $('<a href="' + url + '" class="siteButton">site</a>').click(function() {
-          $("div.lightbox").show().find("iframe").attr("src", $(this).attr("href"));
-          return false;
-        });
-
-        $(this).parents("li").find("div.buttons").append(showButton);
       });
     });
   };
