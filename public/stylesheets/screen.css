@@ -38,9 +38,13 @@ h1 {
 }
 
 h2 {
-  margin: 0 0 20px 0;
-  padding: 0;
+  margin: 10px 0 30px -20px;
   font-size: 2em;
+}
+
+h2 span {
+  background-color: #FF0;
+  padding: 5px 10px;
 }
 
 div#slide-container {
@@ -95,11 +99,19 @@ ol#slides>li {
 
 ol#slides li.centered {
   text-align: center;
-  padding-top: 200px;
+  padding-top: 250px;
+}
+
+ol#slides li.centered h2 {
+  margin: 0 0 20px 0;
 }
 
 ol#slides ul {
   list-style-type: square;
+  font-size: 2em;
+}
+
+ol#slides ul li {
   margin-bottom: 20px;
 }
 
