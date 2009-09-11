@@ -173,16 +173,19 @@ end
 
 <pre class="prettyprint">
 $(".db-list a").click(function() {
-  link = $(this);
-  $.ajax({url: $(this).attr("href"),
+  var link = $(this);
+
+  $.ajax({
+    url: link.attr("href"),
     success: function(src) {
       link.parents("dt").after("&lt;dd>" + src + "&lt;/dd>");
       link.unbind('click').click(function() {
-        $(this).parents("dt").next("dd").toggle();
+        link.parents("dt").next("dd").toggle();
         return false;
       })
     }
   });
+
   return false;
 });
 </pre>
@@ -203,21 +206,24 @@ $(".db-list a").click(function() {
 
 <pre class="prettyprint">
 $(".db-list a").click(function() {
-  link = $(this);
+  var link = $(this);
+
   link.parents("dt").after('&lt;dd class="spinner">&lt;/dd>')
     .next("dd").hide().slideDown("slow");
 
   link.unbind("click").click(function() {
-    $(this).parents("dt").next("dd").slideToggle();
+    link.parents("dt").next("dd").slideToggle();
     return false;
   });
 
-  $.ajax({url: link.attr("href"),
+  $.ajax({
+    url: link.attr("href"),
     success: function(src) {
       link.parents("dt").next("dd").html(src)
         .removeClass("spinner");
     }
   });
+
   return false;
 });
 </pre>
@@ -249,11 +255,12 @@ $(".db-list a").click(function() {
 
 jQuery.fn.loadContentInOrder = function() {
   return this.each(function() {
-    link = $(this);
+    var link = $(this);
 
-    $.ajax({url: link.attr("href"),
+    $.ajax({
+      url: link.attr("href"),
       success: function(src) {
-        display = link.parents("dt").next("dd").html(src)
+        link.parents("dt").next("dd").html(src)
           .removeClass("spinner")
           .next("dt").find("a").loadContentInOrder();
       }
@@ -281,12 +288,13 @@ $(".db-list a:first").loadContentInOrder();
         <div class="code">
 
 <pre class="prettyprint">
-{ "db": {
-    "id": 13,
-    "name": "Tyler Hansbrough",
-    "occupation": "UNC Basketball Player",
-    "bagfactor": 1.3,
-    "avatar_id": 61
+{
+  db: {
+    id: 13,
+    name: "Tyler Hansbrough",
+    occupation: "UNC Basketball Player",
+    bagfactor: 1.3,
+    avatar_id: 61
   }
 }
 </pre>
@@ -320,7 +328,7 @@ end
 
 <pre class="prettyprint">
 jQuery.fn.loadBagfactor = function() { 
-  img = $(this); 
+  var img = $(this); 
 
   $.ajax({
     url: $("a", img.parents("dd").prev("dt")).attr("href"), 
