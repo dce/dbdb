@@ -18,7 +18,7 @@
 
       slides.css({ "width": slideList.size() * container.width() });
 
-      slides.current = (location.hash == "") ? 0 : location.hash.substr(1);
+      slides.current = location.hash.substr(1) || 0;
 
       slides.next = function() {
         if (this.current < slideList.size() - 1) {
