@@ -35,6 +35,7 @@
       };
 
       slides.update = function() {
+        location.hash = "#" + this.current;
         this.animate({ marginLeft: -1 * this.current * container.width() });
       };
 
