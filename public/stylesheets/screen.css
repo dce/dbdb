@@ -124,6 +124,18 @@ ol#slides img.top-pad {
   margin-top: 100px;
 }
 
+ol#slides span.image-container {
+  margin-top: 100px;
+  display: block;
+  text-align: center;
+}
+
+ol#slides span.image-container img {
+  display: inline;
+  vertical-align: middle;
+  padding: 0 20px;
+}
+
 ol#slides blockquote {
   margin: ;
   font: italic 2em Georgia, serif;
