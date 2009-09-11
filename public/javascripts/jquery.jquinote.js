@@ -60,11 +60,9 @@
       $("body").keydown(function(key) {
         switch(key.which) {
         case 37:
-        case 38:
           slides.prev();
           break;
         case 39:
-        case 40:
           slides.next();
           break;
         case 83:
@@ -72,6 +70,9 @@
           break;
         case 68:
           slides.currentSlide().find("a.apply-js").click();
+          break;
+        case 27:
+          $("body").click();
           break;
         }
       });
