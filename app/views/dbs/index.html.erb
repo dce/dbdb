@@ -2,7 +2,7 @@
 <% @dbs.each_with_index do |db, index| %>
   <dt>
     <span class="position"><%= index + 1 %></span>
-    <span class="name"><%= link_to db.name, db %></span>
+    <span class="name"><%= link_to db.name, db, :title => db_url(db) %></span>
   </dt>
 <% end %>
 </dl>

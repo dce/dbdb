@@ -237,6 +237,16 @@ $(".db-list a").click(function() {
         <div class="code executable" title="Background Loading">
 
 <pre class="prettyprint">
+$(".db-list a").each(function() {
+  $(this).parents("dt").after("&lt;dd class=\"spinner\">&lt;/dd>")
+    .next("dd").hide();
+});
+
+$(".db-list a").click(function() {
+  $(this).parents("dt").next("dd").slideToggle();
+  return false;
+});
+
 jQuery.fn.loadContentInOrder = function() {
   return this.each(function() {
     link = $(this);
@@ -250,16 +260,6 @@ jQuery.fn.loadContentInOrder = function() {
     });
   });
 };
-
-$(".db-list a").each(function() {
-  $(this).parents("dt").after("&lt;dd class=\"spinner\">&lt;/dd>")
-    .next("dd").hide();
-});
-
-$(".db-list a").click(function() {
-  $(this).parents("dt").next("dd").slideToggle();
-  return false;
-});
 
 $(".db-list a:first").loadContentInOrder();
 </pre>
@@ -322,9 +322,10 @@ end
 jQuery.fn.loadBagfactor = function() { 
   img = $(this); 
 
-  $.ajax({url: this.parents("dd").prev("dt")
-      .find("a").attr("href"), 
-    data: { format: "json" }, dataType: "json", 
+  $.ajax({
+    url: $("a", img.parents("dd").prev("dt")).attr("href"), 
+    data: { format: "json" },
+    dataType: "json", 
     success: function(db) { 
       img.replaceWith(db.bagfactor); 
       $("img.spinner:first").loadBagfactor(); 
