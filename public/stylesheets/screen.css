@@ -28,13 +28,6 @@ a.disabled {
 
 h1 {
   display: none;
-  padding: 10px;
-  margin: 0 0 10px 0;
-  background-color: #003;
-  text-transform: uppercase;
-  font-size: .8em;
-  letter-spacing: .2em;
-  color: white;
 }
 
 h2 {
@@ -45,6 +38,15 @@ h2 {
 h2 span {
   background-color: #FF0;
   padding: 5px 10px;
+}
+
+h3 {
+  line-height: 1.5em;
+}
+
+h3 em {
+  font-style: normal;
+  color: #aaa;
 }
 
 div#slide-container {
