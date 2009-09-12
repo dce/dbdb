@@ -176,7 +176,7 @@ $(".db-list a").click(function() {
   var link = $(this);
 
   $.ajax({
-    url: link.attr("href"),
+    url: this.href,
     success: function(src) {
       var bio = $("&lt;dd>" + src + "&lt;/dd>");
 
@@ -207,7 +207,7 @@ $(".db-list a").click(function() {
   var bio  = $("&lt;dd>&lt;/dd>");
 
   bio.load(
-    link.attr("href") + " dd > *", function() {
+    this.href + " dd > *", function() {
       link.parents("dt").after(bio);
 
       link.unbind("click").click(function() {
@@ -250,7 +250,7 @@ $(".db-list a").click(function() {
   });
 
   $.ajax({
-    url: link.attr("href"),
+    url: this.href,
     success: function(src) {
       link.parents("dt").next("dd").html(src)
         .removeClass("spinner");
@@ -291,7 +291,7 @@ jQuery.fn.loadContentInOrder = function() {
     var link = $(this);
 
     $.ajax({
-      url: link.attr("href"),
+      url: this.href,
       success: function(src) {
         link.parents("dt").next("dd").html(src)
           .removeClass("spinner")
