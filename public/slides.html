@@ -594,12 +594,21 @@ $("input[type=file]").replaceWith(
 #   Tyler Hansbrough
 # &lt;/a>
 
-$("a[data-remote=true]").click(function() {
-  $.ajax({url: $(this).attr("href"),
-    method = this.dataset.method,
-    success: function(src) {
-      link.parents("dt").after("&lt;dd>" + src + "&lt;/dd>");
-    }
+var request = function(options) {
+  $.ajax($.extend({ url : options.url, type : 'get' },
+    options));
+  return false;
+};
+
+$('a[data-remote=true]').live('click', function() {
+  return request({ url : this.href });
+});
+
+$('form[data-remote=true]').live('submit', function() {
+  return request({
+    url  : this.action,
+    type : this.method,
+    data : $(this).serialize()
   });
 });
 </pre>
@@ -611,17 +620,19 @@ $("a[data-remote=true]").click(function() {
          <div class="code">
 
  <pre class="prettyprint">
- &lt;a href="/dbs/13" class="remote">
-   Tyler Hansbrough
- &lt;/a>
+ # &lt;a href="/dbs/13" class="remote">
+ #   Tyler Hansbrough
+ # &lt;/a>
 
- &lt;!--
+ var request = function(options) {
+   $.ajax($.extend({ url : options.url, type : 'get' },
+     options));
+   return false;
+ };
+
  $("a.remote").click(function() {
-    $.ajax({url: $(this).attr("href"),
-    ...
-    });
+   return request({ url : this.href });
  });
- -->
  </pre>
 
          </div>
