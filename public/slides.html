@@ -178,13 +178,46 @@ $(".db-list a").click(function() {
   $.ajax({
     url: link.attr("href"),
     success: function(src) {
-      link.parents("dt").after("&lt;dd>" + src + "&lt;/dd>");
-      link.unbind('click').click(function() {
-        link.parents("dt").next("dd").toggle();
+      var bio = $("&lt;dd>" + src + "&lt;/dd>");
+
+      link.parents("dt").after(bio);
+
+      link.unbind("click").click(function() {
+        bio.toggle();
         return false;
-      })
+      });
     }
   });
+
+  return false;
+});
+</pre>
+
+        </div>
+
+        <span class="url">http://dbdb.local/</span>
+      </li>
+
+      <li>
+        <div class="code executable" title="HIJAX (alternate)">
+
+<pre class="prettyprint">
+$(".db-list a").click(function() {
+  var link = $(this);
+  var bio  = $("&lt;dd>&lt;/dd>");
+
+  bio.load(
+    link.attr("href") + " dd > *", function() {
+      link.parents("dt").after(bio);
+
+      link.unbind("click").click(function() {
+        bio.toggle();
+        return false;
+      });
+
+      return true;
+    }
+  );
 
   return false;
 });
