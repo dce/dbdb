@@ -172,7 +172,7 @@ end
         <div class="code executable" title="HIJAX">
 
 <pre class="prettyprint">
-$(".db-list a").click(function() {
+$(".db-list a").one("click", function() {
   var link = $(this);
 
   $.ajax({
@@ -182,7 +182,7 @@ $(".db-list a").click(function() {
 
       link.parents("dt").after(bio);
 
-      link.unbind("click").click(function() {
+      link.click(function() {
         bio.toggle();
         return false;
       });
@@ -202,7 +202,7 @@ $(".db-list a").click(function() {
         <div class="code executable" title="HIJAX (w/ #load)">
 
 <pre class="prettyprint">
-$(".db-list a").click(function() {
+$(".db-list a").one("click", function() {
   var link = $(this);
   var bio  = $("&lt;dd>&lt;/dd>");
 
@@ -210,7 +210,7 @@ $(".db-list a").click(function() {
     this.href + " dd > *", function() {
       link.parents("dt").after(bio);
 
-      link.unbind("click").click(function() {
+      link.click(function() {
         bio.toggle();
         return false;
       });
@@ -238,22 +238,22 @@ $(".db-list a").click(function() {
         <div class="code executable" title="More Responsive">
 
 <pre class="prettyprint">
-$(".db-list a").click(function() {
+$(".db-list a").one("click", function() {
   var link = $(this);
+  var bio  = $('&lt;dd class="spinner">&lt;/dd>');
 
-  link.parents("dt").after('&lt;dd class="spinner">&lt;/dd>')
-    .next("dd").hide().slideDown("slow");
+  link.parents("dt").after(bio);
+  bio.hide().slideDown("slow");
 
-  link.unbind("click").click(function() {
-    link.parents("dt").next("dd").slideToggle();
+  link.click(function() {
+    bio.slideToggle();
     return false;
   });
 
   $.ajax({
     url: this.href,
     success: function(src) {
-      link.parents("dt").next("dd").html(src)
-        .removeClass("spinner");
+      bio.html(src).removeClass("spinner");
     }
   });
 
@@ -277,16 +277,18 @@ $(".db-list a").click(function() {
 
 <pre class="prettyprint">
 $(".db-list a").each(function() {
-  $(this).parents("dt").after("&lt;dd class=\"spinner\">&lt;/dd>")
-    .next("dd").hide();
+  var link = $(this);
+  var bio  = $('&lt;dd class="spinner">&lt;/dd>').hide();
+
+  link.parents("dt").after(bio);
+
+  link.click(function() {
+    bio.slideToggle();
+    return false;
+  });
 });
 
-$(".db-list a").click(function() {
-  $(this).parents("dt").next("dd").slideToggle();
-  return false;
-});
-
-jQuery.fn.loadContentInOrder = function() {
+$.fn.loadContentInOrder = function() {
   return this.each(function() {
     var link = $(this);
 
